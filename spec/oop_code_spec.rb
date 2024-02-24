@@ -26,13 +26,14 @@ RSpec.describe VendingMachine do
   describe "#get_inventory" do
     it "returns the inventory" do
       bottles = VendingMachine.new
-      expect (bottles.get_inventory).to eq(2)
+      expect(bottles.get_inventory).to eq(2)
     end
   end
 
   describe "#report" do
     it "prints the correct inventory" do
-      expect(bottles.report).to output("Inventory: 2 bottles")
+      bottles = VendingMachine.new(2)
+      expect{bottles.report}.to output("Inventory: 2 bottles\n").to_stdout
     end
   end
 end
